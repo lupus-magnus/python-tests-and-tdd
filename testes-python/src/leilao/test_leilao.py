@@ -58,6 +58,7 @@ class TestAvaliador(TestCase):
         try:
             self.leilao.propoe(self.lance_do_gui)
             self.leilao.propoe(Lance(self.gui, 250.0))
+
         except ValueError:
             quantidade_de_lances = len(self.leilao.lances)
             self.assertEqual(1, quantidade_de_lances)
