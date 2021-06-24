@@ -62,3 +62,12 @@ class TestAvaliador(TestCase):
         except ValueError:
             quantidade_de_lances = len(self.leilao.lances)
             self.assertEqual(1, quantidade_de_lances)
+
+    def test_deve_permitir_apenas_lances_maiores_que_o_ultimo(self):
+        try:
+            self.leilao.propoe(self.lance_do_gui)
+            self.leilao.propoe(self.lance_do_yuri)
+
+        except ValueError:
+            quantidade_de_lances = len(self.leilao.lances)
+            self.assertEqual(1, quantidade_de_lances)
