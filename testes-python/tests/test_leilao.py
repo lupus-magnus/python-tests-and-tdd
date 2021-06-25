@@ -1,5 +1,6 @@
 from unittest import TestCase
-from dominio import Usuario, Lance, Leilao
+from src.leilao.dominio import Usuario, Lance, Leilao
+from src.leilao.excecoes import LanceInvalido
 
 
 class TestAvaliador(TestCase):
@@ -59,7 +60,7 @@ class TestAvaliador(TestCase):
             self.leilao.propoe(self.lance_do_gui)
             self.leilao.propoe(Lance(self.gui, 250.0))
 
-        except ValueError:
+        except LanceInvalido:
             quantidade_de_lances = len(self.leilao.lances)
             self.assertEqual(1, quantidade_de_lances)
 
@@ -68,6 +69,6 @@ class TestAvaliador(TestCase):
             self.leilao.propoe(self.lance_do_gui)
             self.leilao.propoe(self.lance_do_yuri)
 
-        except ValueError:
+        except LanceInvalido:
             quantidade_de_lances = len(self.leilao.lances)
             self.assertEqual(1, quantidade_de_lances)

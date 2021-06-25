@@ -2,11 +2,11 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        "./testes-python/src/leilao",
+        "./testes-python",
         "-p",
         "test_*.py"
     ],
-    "python.testing.pytestEnabled": false,
+    "python.testing.pytestEnabled": true,
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": true
 }
